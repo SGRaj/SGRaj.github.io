@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			setClock();
+			setInterval(function(){
+				setClock();
+			}, 1000);
+			function setClock(){
+				var dt = new Date();
+				var hour = dt.getHours();
+				var min = dt.getMinutes();
+				var sec = dt.getSeconds();
+				var hourDeg = hour * 30;
+				var minDeg = min * 6;
+				var secDeg = sec * 6;
+				$(".hour").css('transform','rotate('+hourDeg+'deg)');
+				$(".min").css('transform','rotate('+minDeg+'deg)');
+				$(".sec").css('transform','rotate('+secDeg+'deg)');
+			}
+		});
+		</script>
+		<style>	
+			.*{padding:0;margin:0}
+			body{rgba(119, 119, 119, 0.2)}
+			.background{background-image: url(clock-bg.png);position: fixed;width: 300px;height: 300px;background-size: 100%;top: calc(50% - 153px);left: calc(50% - 153px);border-radius: 50%;border: 6px solid;background-color: rgba(0, 0, 0, 0.2);;}
+			.clock{position:absolute;}
+			.hour{background-image: url(hour.png);width: 60px;height: 235px;background-size: 100%;top: 28px;left: 121px;}
+			.min{background-image: url(min.png);width: 40px;height: 248px;background-size: 100%;top: 22px;left: 127px;}
+			.sec{background-image: url(sec.png);width: 65px;height: 250px;background-size: 100% 100%;top: 20px;left: 114px;}
+			.cicle{    background-image: url(circule.png);width: 40px;height: 42px;top: 127px;left: 127px;background-size: 100%;}
+		</style>
+	</head>
+	<body>
+		<div class="background">
+			<div class="clock hour"></div>
+			<div class="clock min"></div>
+			<div class="clock sec"></div>
+			<div class="clock cicle"></div>
+		</div>
+	</body>
+</html>
